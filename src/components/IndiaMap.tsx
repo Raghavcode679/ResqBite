@@ -230,6 +230,13 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
 
     L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map);
 
+    // Dedicated pane ABOVE all default overlays for critical (red alert)
+    // batch markers — CircleMarker has no setZIndexOffset, so a higher pane
+    // is the reliable way to keep red alerts visually on top.
+    map.createPane('criticalMarkers');
+    const pane = map.getPane('criticalMarkers');
+    if (pane) pane.style.zIndex = '650'; // overlayPane=400, markerPane=600
+
     paneLayerRef.current = L.layerGroup().addTo(map);
     routeLayerRef.current = L.layerGroup().addTo(map);
     rsLayerRef.current = L.layerGroup().addTo(map);
@@ -510,7 +517,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
       if (isCritical) {
         // Pulsing halo: CSS-animated so it BLINKS continuously — first-priority
         // visual on the map (see .orq-critical-pulse in index.css).
-        const halo = L.circleMarker([batch.location.lat, batch.location.lng], {
+        L.circleMarker([batch.location.lat, batch.location.lng], {
           radius: 17,
           color,
           weight: 2,
@@ -518,8 +525,8 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
           fillOpacity: 0.22,
           className: 'orq-critical-pulse',
           interactive: false,
+          pane: 'criticalMarkers',
         }).addTo(layer);
-        (halo as unknown as { setZIndexOffset: (n: number) => void }).setZIndexOffset(1000);
       }
 
       const marker = L.circleMarker([batch.location.lat, batch.location.lng], {
@@ -529,6 +536,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
         fillColor: color,
         fillOpacity: 0.97,
         className: isCritical ? 'orq-critical-core' : undefined,
+        pane: isCritical ? 'criticalMarkers' : 'overlayPane',
       })
         .bindTooltip(
           buildHoverHtml({
@@ -569,8 +577,6 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
           onSelectBatch(batch);
         })
         .addTo(layer);
-      if (isCritical)
-        (marker as unknown as { setZIndexOffset: (n: number) => void }).setZIndexOffset(1000); // red nodes always on top
 
       // weight tag tooltip
       L.tooltip({ direction: 'right', className: 'omniresq-weight-tag', permanent: true, offset: [8, 0] })
