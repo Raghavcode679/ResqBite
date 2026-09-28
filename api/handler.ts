@@ -1,8 +1,8 @@
 /**
- * Vercel serverless entry source — esbuild bundles this (server/app.ts and
+ * Vercel serverless handler source — esbuild bundles this (server/app.ts and
  * every import, including @google/genai) into api/dist.cjs during the build
- * (see scripts/build-api.mjs). At runtime the vercel build command regenerates
- * the bundle, and Node loads api/dist.cjs directly (CommonJS, zero imports).
+ * (see scripts/build-api.mjs). At runtime Node loads api/dist.cjs directly
+ * (CommonJS, zero imports) via the generated api/index.js shim.
  */
 import type { Request, Response } from 'express';
 import { buildApp } from '../server/app';

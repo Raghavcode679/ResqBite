@@ -45330,12 +45330,12 @@ var require_main = __commonJS({
   }
 });
 
-// api/[...path].ts
-var path_exports = {};
-__export(path_exports, {
+// api/handler.ts
+var handler_exports = {};
+__export(handler_exports, {
   default: () => handler
 });
-module.exports = __toCommonJS(path_exports);
+module.exports = __toCommonJS(handler_exports);
 
 // server/app.ts
 var import_express = __toESM(require_express2(), 1);
@@ -69864,7 +69864,7 @@ Verdict: ${verdict.qualityGrade}, score ${verdict.freshnessScore}/100, ${verdict
   return app2;
 }
 
-// api/[...path].ts
+// api/handler.ts
 var app = buildApp();
 function handler(req, res) {
   return app(req, res);
