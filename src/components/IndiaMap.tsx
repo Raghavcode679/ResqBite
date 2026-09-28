@@ -493,29 +493,42 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
       });
     }
 
-    // ---- Donor surplus batches -----------------------------------------------
-    filteredBatches.forEach((batch) => {
+    // ---- Donor surplus batches (critical batches LAST = rendered on top) -----
+    // Sort so critical batches are added last — Leaflet renders later layers
+    // above earlier ones, keeping red alerts visually on top of everything.
+    const sortedBatches = [...filteredBatches].sort((a, b) => {
+      const rank = (x: DonationBatch) =>
+        x.urgency === 'Critical (<1h)' ? 2 : x.urgency === 'Urgent (<3h)' ? 1 : 0;
+      return rank(a) - rank(b);
+    });
+    sortedBatches.forEach((batch) => {
       const isSelected = selectedBatchId === batch.id || activeSelectedBatch?.id === batch.id;
       const isCritical = batch.urgency === 'Critical (<1h)';
       const isUrgent = batch.urgency === 'Urgent (<3h)';
       const color = isCritical ? '#f43f5e' : isUrgent ? '#f59e0b' : '#10b981';
 
       if (isCritical) {
-        L.circleMarker([batch.location.lat, batch.location.lng], {
-          radius: 15,
+        // Pulsing halo: CSS-animated so it BLINKS continuously — first-priority
+        // visual on the map (see .orq-critical-pulse in index.css).
+        const halo = L.circleMarker([batch.location.lat, batch.location.lng], {
+          radius: 17,
           color,
-          weight: 1,
+          weight: 2,
           fillColor: color,
-          fillOpacity: 0.14,
+          fillOpacity: 0.22,
+          className: 'orq-critical-pulse',
+          interactive: false,
         }).addTo(layer);
+        (halo as unknown as { setZIndexOffset: (n: number) => void }).setZIndexOffset(1000);
       }
 
-      L.circleMarker([batch.location.lat, batch.location.lng], {
+      const marker = L.circleMarker([batch.location.lat, batch.location.lng], {
         radius: isSelected ? 9.5 : 7,
         color: '#ffffff',
         weight: 2,
         fillColor: color,
         fillOpacity: 0.97,
+        className: isCritical ? 'orq-critical-core' : undefined,
       })
         .bindTooltip(
           buildHoverHtml({
@@ -556,6 +569,8 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
           onSelectBatch(batch);
         })
         .addTo(layer);
+      if (isCritical)
+        (marker as unknown as { setZIndexOffset: (n: number) => void }).setZIndexOffset(1000); // red nodes always on top
 
       // weight tag tooltip
       L.tooltip({ direction: 'right', className: 'omniresq-weight-tag', permanent: true, offset: [8, 0] })

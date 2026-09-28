@@ -14,7 +14,7 @@ import {
   INITIAL_NOTIFICATIONS,
   INITIAL_RECEIVER_AREAS
 } from './data/mockData';
-import { playUrgentAlertChime, playSuccessChime } from './utils/audio';
+import { playUrgentAlertChime, playSuccessChime, playRingRingAlert } from './utils/audio';
 import { Header } from './components/Header';
 import { IndiaMap } from './components/IndiaMap';
 import { NearbyDonorsDashboard } from './components/NearbyDonorsDashboard';
@@ -130,7 +130,11 @@ export default function App() {
     setNotifications((prev) => [newNotif, ...prev]);
 
     if (soundEnabled) {
-      playUrgentAlertChime();
+      if (newBatch.urgency.includes('Critical')) {
+        playRingRingAlert(); // critical surplus = telephone ring-ring alert
+      } else {
+        playUrgentAlertChime();
+      }
     }
   };
 

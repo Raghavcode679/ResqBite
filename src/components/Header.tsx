@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onToggleSound}
                 className="p-2 text-slate-400 hover:text-white rounded-lg bg-slate-900 border border-slate-800"
-                title={soundEnabled ? 'Mute Alert Chimes' : 'Enable Alert Chimes'}
+                title={soundEnabled ? 'Mute Alert Chimes (critical alerts ring like a phone)' : 'Enable Alert Chimes'}
               >
                 {soundEnabled ? <Volume2 className="w-4 h-4 text-emerald-400" /> : <VolumeX className="w-4 h-4" />}
               </button>
@@ -217,7 +217,7 @@ export const Header: React.FC<HeaderProps> = ({
                     ? 'bg-slate-900 border-emerald-500/50 text-emerald-400 hover:bg-slate-800'
                     : 'bg-slate-900 border-slate-800 text-slate-500 hover:text-slate-300'
                 }`}
-                title={soundEnabled ? 'Urgent Alert Chimes Active' : 'Sound Muted'}
+                title={soundEnabled ? 'Alerts Active — critical surplus posts ring like a phone' : 'Sound Muted'}
               >
                 {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
               </button>

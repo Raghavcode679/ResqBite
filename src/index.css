@@ -175,6 +175,41 @@ body {
   border-radius: 3px;
 }
 
+/* ---- CRITICAL batch nodes: continuous blink + halo pulse (top priority) --- */
+@keyframes orq-critical-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes orq-critical-halo {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+/* Core red dot blinks */
+.leaflet-container .orq-critical-core {
+  animation: orq-critical-blink 1.1s ease-in-out infinite;
+}
+/* Expanding halo ring pulses outward */
+.leaflet-container .orq-critical-pulse {
+  animation: orq-critical-halo 1.6s ease-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
 /* ---- Rich hover cards (node hover — same box as the old SVG map) --------- */
 .omniresq-hovercard {
   background: transparent !important;
