@@ -1,0 +1,6 @@
+{
+  "name": "OmniResQ — Every Meal Rescued, Everywhere",
+  "description": "AI-powered food surplus reduction, real-time inventory tracking, and smart donation logistics for institutional kitchens, food banks, and volunteer drivers across India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

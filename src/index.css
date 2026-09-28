@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+/* ===========================================================================
+   Map theming — blends the real basemap into OmniResQ's dark slate theme
+   =========================================================================== */
+
+/* Google tiles arrive light-gray; invert+tint pushes them into the app's
+   dark emerald/slate palette (same trick Google uses for its own dark maps).
+   NOTE: className lands on the tile-layer CONTAINER, so target the <img>
+   tiles inside it (not the container itself). */
+.leaflet-container .google-dark-tiles .leaflet-tile {
+  filter: invert(1) hue-rotate(185deg) saturate(0.62) brightness(0.95) contrast(1.07);
+}
+
+/* Satellite tiles stay natural (no filter) — imagery is already dark. */
+.leaflet-container .google-sat-tiles .leaflet-tile {
+  filter: none;
+}
+
+/* Tone the whole map canvas toward slate-950 */
+.leaflet-container {
+  background: #020617;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  outline: none;
+}
+
+/* Dim map slightly under the floating control bars so UI stays readable */
+.leaflet-pane.map-tint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.28);
+  pointer-events: none;
+  z-index: 400;
+}
+
+/* ---- Leaflet controls / attribution in dark chrome ----------------------- */
+.leaflet-control-attribution {
+  background: rgba(2, 6, 23, 0.75) !important;
+  color: #64748b !important;
+  font-size: 9px !important;
+  padding: 1px 6px !important;
+  border-radius: 6px 0 0 0;
+}
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+/* ---- Tooltips (weight tags, city labels, route hints) -------------------- */
+.omniresq-tooltip,
+.omniresq-city-label,
+.omniresq-punjab-chip {
+  background: rgba(2, 6, 23, 0.92) !important;
+  border: 1px solid #1e293b !important;
+  color: #e2e8f0 !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  padding: 3px 8px !important;
+}
+.omniresq-city-label {
+  border: none !important;
+  background: transparent !important;
+  color: #94a3b8 !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px #000;
+  box-shadow: none !important;
+}
+.omniresq-punjab-chip {
+  border-color: #eab308 !important;
+  color: #fde047 !important;
+  font-size: 10px !important;
+}
+.omniresq-weight-tag {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid #10b981 !important;
+  color: #6ee7b7 !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px !important;
+  font-weight: 700;
+  border-radius: 6px !important;
+  padding: 1px 5px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+}
+/* Hide tooltip pointer arrows for a cleaner HUD look */
+.omniresq-tooltip::before,
+.omniresq-city-label::before,
+.omniresq-punjab-chip::before,
+.omniresq-weight-tag::before {
+  display: none !important;
+}
+
+/* ---- Popups (node click cards) ------------------------------------------- */
+.leaflet-popup-content-wrapper {
+  background: rgba(2, 6, 23, 0.96) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #1e293b;
+  border-radius: 14px !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6) !important;
+}
+.leaflet-popup-tip {
+  background: #020617 !important;
+  border: 1px solid #1e293b;
+}
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.leaflet-popup-close-button {
+  color: #64748b !important;
+  font-size: 16px !important;
+  padding: 6px 8px 0 0 !important;
+}
+.leaflet-popup-close-button:hover {
+  color: #fff !important;
+  background: transparent !important;
+}
+
+/* Popup inner content (built by buildPopupHtml) */
+.orq-popup {
+  min-width: 230px;
+  max-width: 280px;
+}
+.orq-popup-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+.orq-popup-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.orq-popup-sub {
+  font-size: 10.5px;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+.orq-popup-row {
+  font-size: 10.5px;
+  color: #cbd5e1;
+  margin-top: 4px;
+  padding-left: 8px;
+  border-left: 2px solid #1e293b;
+}
+
+/* Scrollbar inside popups when content is long */
+.leaflet-popup-content::-webkit-scrollbar {
+  width: 6px;
+}
+.leaflet-popup-content::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+/* ---- Rich hover cards (node hover — same box as the old SVG map) --------- */
+.omniresq-hovercard {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.omniresq-hovercard::before {
+  display: none !important;
+}
+.orq-hover {
+  width: 272px;
+  background: rgba(2, 6, 23, 0.97);
+  border: 1.5px solid #10b981;
+  border-radius: 12px;
+  padding: 10px 12px 8px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+.orq-hover-kicker {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 3px;
+}
+.orq-hover-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orq-hover-sub {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orq-hover-row {
+  font-size: 10.5px;
+  color: #cbd5e1;
+  margin-top: 3px;
+  padding-left: 8px;
+  border-left: 2px solid #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orq-hover-hint {
+  margin-top: 6px;
+  font-size: 8.5px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  color: #475569;
+  letter-spacing: 0.08em;
+}
