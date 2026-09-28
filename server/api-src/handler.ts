@@ -5,7 +5,7 @@
  * (CommonJS, zero imports) via the generated api/index.js shim.
  */
 import type { Request, Response } from 'express';
-import { buildApp } from '../server/app';
+import { buildApp } from '../app';
 
 const app = buildApp();
 

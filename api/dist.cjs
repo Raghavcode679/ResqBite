@@ -45330,7 +45330,7 @@ var require_main = __commonJS({
   }
 });
 
-// api/handler.ts
+// server/api-src/handler.ts
 var handler_exports = {};
 __export(handler_exports, {
   default: () => handler
@@ -69864,7 +69864,7 @@ Verdict: ${verdict.qualityGrade}, score ${verdict.freshnessScore}/100, ${verdict
   return app2;
 }
 
-// api/handler.ts
+// server/api-src/handler.ts
 var app = buildApp();
 function handler(req, res) {
   return app(req, res);
