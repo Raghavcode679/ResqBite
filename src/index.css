@@ -17,7 +17,7 @@ body {
 }
 
 /* ===========================================================================
-   Map theming — blends the real basemap into OmniResQ's dark slate theme
+   Map theming — blends the real basemap into ResqBite's dark slate theme
    =========================================================================== */
 
 /* Google tiles arrive light-gray; invert+tint pushes them into the app's
@@ -63,9 +63,9 @@ body {
 }
 
 /* ---- Tooltips (weight tags, city labels, route hints) -------------------- */
-.omniresq-tooltip,
-.omniresq-city-label,
-.omniresq-punjab-chip {
+.resqbite-tooltip,
+.resqbite-city-label,
+.resqbite-punjab-chip {
   background: rgba(2, 6, 23, 0.92) !important;
   border: 1px solid #1e293b !important;
   color: #e2e8f0 !important;
@@ -76,7 +76,7 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
   padding: 3px 8px !important;
 }
-.omniresq-city-label {
+.resqbite-city-label {
   border: none !important;
   background: transparent !important;
   color: #94a3b8 !important;
@@ -85,12 +85,12 @@ body {
   text-shadow: 0 1px 3px #000;
   box-shadow: none !important;
 }
-.omniresq-punjab-chip {
+.resqbite-punjab-chip {
   border-color: #eab308 !important;
   color: #fde047 !important;
   font-size: 10px !important;
 }
-.omniresq-weight-tag {
+.resqbite-weight-tag {
   background: rgba(15, 23, 42, 0.95) !important;
   border: 1px solid #10b981 !important;
   color: #6ee7b7 !important;
@@ -102,10 +102,10 @@ body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
 }
 /* Hide tooltip pointer arrows for a cleaner HUD look */
-.omniresq-tooltip::before,
-.omniresq-city-label::before,
-.omniresq-punjab-chip::before,
-.omniresq-weight-tag::before {
+.resqbite-tooltip::before,
+.resqbite-city-label::before,
+.resqbite-punjab-chip::before,
+.resqbite-weight-tag::before {
   display: none !important;
 }
 
@@ -211,12 +211,12 @@ body {
 }
 
 /* ---- Rich hover cards (node hover — same box as the old SVG map) --------- */
-.omniresq-hovercard {
+.resqbite-hovercard {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
-.omniresq-hovercard::before {
+.resqbite-hovercard::before {
   display: none !important;
 }
 .orq-hover {

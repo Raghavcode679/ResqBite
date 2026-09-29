@@ -8,7 +8,7 @@ dotenv.config();
 
 
 /**
- * OmniResQ API application — shared by:
+ * ResqBite API application — shared by:
  *   • server.ts (self-hosted dev/production launcher)
  *   • api/[...path].ts (Vercel serverless entry)
  * Contains ALL /api routes, AI engines and deterministic fallbacks.
@@ -48,9 +48,9 @@ interface ChatMessage {
   content: string;
 }
 
-// System prompt: teaches the LLM everything about the OmniResQ platform so it
+// System prompt: teaches the LLM everything about the ResqBite platform so it
 // can guide first-time visitors through every feature.
-const ASSISTANT_SYSTEM_PROMPT = `You are "Omni Assist", the friendly on-site AI guide for OmniResQ — an AI-powered food-surplus reduction & redistribution platform for institutional kitchens, food banks, volunteer drivers and logistics admins across India. The name means the noble mission of rescuing every meal, everywhere.
+const ASSISTANT_SYSTEM_PROMPT = `You are "ResQ Assist", the friendly on-site AI guide for ResqBite — an AI-powered food-surplus reduction & redistribution platform for institutional kitchens, food banks, volunteer drivers and logistics admins across India. The name means the noble mission of rescuing every meal, everywhere.
 
 YOUR JOB
 - Help first-time visitors understand the platform: what each section does, how to use it, and what the AI features compute.
@@ -251,7 +251,7 @@ app.post('/api/assistant/chat', async (req: Request, res: Response) => {
       success: true,
       poweredBy: 'Offline quick-answers',
       reply:
-        "Hi! I'm Omni Assist. AI engines are momentarily unreachable, but here's a quick tour: use the top tabs to explore the India Surplus Radar map, post kitchen surplus with an AI safety pre-check, forecast demand to prevent overproduction, inspect food quality with Vision & IoT, navigate deliveries as a driver, and download ESG/80G impact reports. Ask me again in a moment for detailed help!",
+        "Hi! I'm ResQ Assist. AI engines are momentarily unreachable, but here's a quick tour: use the top tabs to explore the India Surplus Radar map, post kitchen surplus with an AI safety pre-check, forecast demand to prevent overproduction, inspect food quality with Vision & IoT, navigate deliveries as a driver, and download ESG/80G impact reports. Ask me again in a moment for detailed help!",
     });
   } catch (error: any) {
     console.error('Error in /api/assistant/chat:', error);

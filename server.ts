@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * OmniResQ self-hosted launcher.
+ * ResqBite self-hosted launcher.
  *  - dev: Vite middleware (HMR) + API from server/app.ts
  *  - production (node server.ts): static dist/ + API
  * Vercel deployment uses api/[...path].ts instead — same shared app.
@@ -81,7 +81,7 @@ async function startServer() {
   }
 
   const server = app.listen(httpPort, '0.0.0.0', () => {
-    console.log(`OmniResQ server running on http://localhost:${httpPort}`);
+    console.log(`ResqBite server running on http://localhost:${httpPort}`);
     if (httpPort !== preferredHttpPort) {
       console.log(`  ↳ port ${preferredHttpPort} was busy — auto-shifted to ${httpPort}`);
     }

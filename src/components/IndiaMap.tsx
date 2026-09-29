@@ -352,7 +352,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
           opacity: 0.6,
           dashArray: '7 6',
         })
-          .bindTooltip(`🛣 ${c.name}`, { direction: 'top', className: 'omniresq-tooltip' })
+          .bindTooltip(`🛣 ${c.name}`, { direction: 'top', className: 'resqbite-tooltip' })
           .addTo(layer);
       });
     }
@@ -393,7 +393,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
           })
             .bindTooltip(`🚚 ${batch.foodTitle} — ${Math.round(progress * 100)}% of route`, {
               direction: 'top',
-              className: 'omniresq-tooltip',
+              className: 'resqbite-tooltip',
             })
             .addTo(layer);
         });
@@ -422,7 +422,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
               ],
               accent: '#3b82f6',
             }),
-            { sticky: true, direction: 'top', offset: [0, -8], className: 'omniresq-hovercard' }
+            { sticky: true, direction: 'top', offset: [0, -8], className: 'resqbite-hovercard' }
           )
           .bindPopup(
             buildPopupHtml({
@@ -479,7 +479,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
               ],
               accent: '#f97316',
             }),
-            { sticky: true, direction: 'top', offset: [0, -8], className: 'omniresq-hovercard' }
+            { sticky: true, direction: 'top', offset: [0, -8], className: 'resqbite-hovercard' }
           )
           .bindPopup(
             buildPopupHtml({
@@ -554,7 +554,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
             ].filter(Boolean),
             accent: color,
           }),
-          { sticky: true, direction: 'top', offset: [0, -8], className: 'omniresq-hovercard' }
+          { sticky: true, direction: 'top', offset: [0, -8], className: 'resqbite-hovercard' }
         )
         .bindPopup(
           buildPopupHtml({
@@ -579,7 +579,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
         .addTo(layer);
 
       // weight tag tooltip
-      L.tooltip({ direction: 'right', className: 'omniresq-weight-tag', permanent: true, offset: [8, 0] })
+      L.tooltip({ direction: 'right', className: 'resqbite-weight-tag', permanent: true, offset: [8, 0] })
         .setLatLng([batch.location.lat, batch.location.lng])
         .setContent(`${batch.quantityKg}kg`)
         .addTo(layer);
@@ -588,13 +588,13 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
     // ---- Punjab city labels when focused --------------------------------------
     if (showPunjabFocus || selectedCity === 'Punjab') {
       PUNJAB_CITIES.forEach((c) => {
-        L.tooltip({ permanent: true, direction: 'right', className: 'omniresq-city-label' })
+        L.tooltip({ permanent: true, direction: 'right', className: 'resqbite-city-label' })
           .setLatLng([c.lat, c.lng])
           .setContent(c.name)
           .addTo(layer);
       });
       if (punjabZone) {
-        L.tooltip({ permanent: true, direction: 'top', offset: [0, -6], className: 'omniresq-punjab-chip' })
+        L.tooltip({ permanent: true, direction: 'top', offset: [0, -6], className: 'resqbite-punjab-chip' })
           .setLatLng([31.1, 75.4])
           .setContent(
             `★ PUNJAB AGRO · NDVI ${punjabZone.ndvi.toFixed(2)} · LST ${punjabZone.lstC}°C · ${punjabLiveBatches.length} live batches`
@@ -649,7 +649,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
         .on('click', () => setActiveZoneId(z.id))
         .bindTooltip(`${z.name} — NDVI ${z.ndvi.toFixed(2)} (${vigor.label})`, {
           direction: 'top',
-          className: 'omniresq-tooltip',
+          className: 'resqbite-tooltip',
         })
         .addTo(layer);
     });

@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * OmniResQ brand mark — "nourishment emblem" (matched to the user's reference):
+ * ResqBite brand mark — "nourishment emblem" (matched to the user's reference):
  *  • Apple-shaped green ring with stem + twin leaves = fresh, wholesome food
  *  • Blue bowl holding a small apple = served meals
  *  • Two green cupping hands meeting below = the community giving & receiving
@@ -16,17 +16,17 @@ export const LogoMark: React.FC<{ className?: string; rounded?: string }> = ({
     viewBox="0 0 100 100"
     className={`${className} ${rounded} shadow-lg shadow-emerald-900/30`}
     role="img"
-    aria-label="OmniResQ logo"
+    aria-label="ResqBite logo"
   >
     <defs>
-      <linearGradient id="omniresq-gradient" x1="0" y1="0" x2="1" y2="1">
+      <linearGradient id="resqbite-gradient" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#0b1220" />
         <stop offset="55%" stopColor="#064e3b" />
         <stop offset="100%" stopColor="#0f766e" />
       </linearGradient>
     </defs>
 
-    <rect width="100" height="100" rx="26" fill="url(#omniresq-gradient)" />
+    <rect width="100" height="100" rx="26" fill="url(#resqbite-gradient)" />
 
     {/* Blue crescents peeking from behind the hands (rescue cycle) */}
     <path
@@ -144,14 +144,14 @@ export const LogoMark: React.FC<{ className?: string; rounded?: string }> = ({
   </svg>
 );
 
-/** Full horizontal lockup: mark + "Omni**ResQ**" wordmark + optional tagline */
+/** Full horizontal lockup: mark + "Resq**Bite**" wordmark + optional tagline */
 export const LogoLockup: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
   <div className="flex items-center gap-3">
     <LogoMark className={compact ? 'w-9 h-9' : 'w-10 h-10'} />
     <div>
       <div className="flex items-center gap-2">
         <span className="text-lg font-bold tracking-tight text-white font-sans">
-          Omni<span className="text-emerald-400">ResQ</span>
+          Resq<span className="text-emerald-400">Bite</span>
         </span>
         <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-emerald-900/60 text-emerald-300 border border-emerald-700/50">
           AI Logistics

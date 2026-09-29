@@ -1,4 +1,4 @@
-# ♾️ OmniResQ — Every Meal Rescued, Everywhere
+# 🍎 ResqBite — Every Meal Rescued, Everywhere
 
 *(formerly Annapurna Connect / ResQFood)*
 
@@ -23,7 +23,7 @@ Built with **React 19 + Vite + Tailwind CSS 4 + Express (TypeScript)**, powered 
 | **Redistribution Partners** | Manage NGO food banks & assign surplus |
 | **Impact & ESG Reports** | Corporate ESG statements, SDG alignment, CSR/80G benefits |
 | **Logistics Command** | Admin overview of all batches, partners & drivers |
-| **♾️ Omni Assist** | Floating AI assistant (bottom-right) that answers any question about the platform — perfect for first-time visitors |
+| **🍎 ResQ Assist** | Floating AI assistant (bottom-right) that answers any question about the platform — perfect for first-time visitors |
 
 ### 🤖 AI Assistant (new)
 A chat bubble lives on every page. Ask it things like:

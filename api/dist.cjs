@@ -69011,7 +69011,7 @@ function buildApp() {
       }
     }
   }) : null;
-  const ASSISTANT_SYSTEM_PROMPT = `You are "Omni Assist", the friendly on-site AI guide for OmniResQ \u2014 an AI-powered food-surplus reduction & redistribution platform for institutional kitchens, food banks, volunteer drivers and logistics admins across India. The name means the noble mission of rescuing every meal, everywhere.
+  const ASSISTANT_SYSTEM_PROMPT = `You are "ResQ Assist", the friendly on-site AI guide for ResqBite \u2014 an AI-powered food-surplus reduction & redistribution platform for institutional kitchens, food banks, volunteer drivers and logistics admins across India. The name means the noble mission of rescuing every meal, everywhere.
 
 YOUR JOB
 - Help first-time visitors understand the platform: what each section does, how to use it, and what the AI features compute.
@@ -69177,7 +69177,7 @@ IMPACT MATH used across the app: ~2.8 meals per kg of cooked food, ~2.45 kg CO2e
       return res.json({
         success: true,
         poweredBy: "Offline quick-answers",
-        reply: "Hi! I'm Omni Assist. AI engines are momentarily unreachable, but here's a quick tour: use the top tabs to explore the India Surplus Radar map, post kitchen surplus with an AI safety pre-check, forecast demand to prevent overproduction, inspect food quality with Vision & IoT, navigate deliveries as a driver, and download ESG/80G impact reports. Ask me again in a moment for detailed help!"
+        reply: "Hi! I'm ResQ Assist. AI engines are momentarily unreachable, but here's a quick tour: use the top tabs to explore the India Surplus Radar map, post kitchen surplus with an AI safety pre-check, forecast demand to prevent overproduction, inspect food quality with Vision & IoT, navigate deliveries as a driver, and download ESG/80G impact reports. Ask me again in a moment for detailed help!"
       });
     } catch (error) {
       console.error("Error in /api/assistant/chat:", error);

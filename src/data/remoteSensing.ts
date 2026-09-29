@@ -289,12 +289,12 @@ export function zoneNdviHistory(zone: RemoteSensingZone): number[] {
 export const PUNJAB_AGRO_PROFILE = {
   zoneId: 'rs-punjab',
   title: 'Punjab Agro-Hub — “Granary of India”',
-  tagline: 'India’s highest-yield wheat & paddy foodshed, wired into the OmniResQ radar',
+  tagline: 'India’s highest-yield wheat & paddy foodshed, wired into the ResqBite radar',
   facts: [
     'Grows ~12% of India’s food grain from ~1.5% of its land area.',
     'Mandi network (142 procurement centres) feeds the Grand Trunk Food Lifeline corridor visible on the map.',
     'Largest contributor to FCI central pool: wheat (Rabi, Apr–Jun) & paddy (Kharif, Oct–Dec).',
-    'Surplus from langar kitchens, Verka dairies & banquet halls around Amritsar–Ludhiana–Jalandhar flows through the OmniResQ driver HUD daily.',
+    'Surplus from langar kitchens, Verka dairies & banquet halls around Amritsar–Ludhiana–Jalandhar flows through the ResqBite driver HUD daily.',
     'Remote-sensing watch: stubble-burning plumes (Oct–Nov) tracked via MODIS thermal anomalies to re-route cold-chain fleets.',
   ],
   cropCalendar: [

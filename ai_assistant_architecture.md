@@ -1,7 +1,7 @@
 # 🤖 AI Assistant — Architecture & Design
 
 ## Overview
-"Omni Assist" is a floating chat widget that guides first-time visitors through the OmniResQ platform and answers any question about its features.
+"ResQ Assist" is a floating chat widget that guides first-time visitors through the ResqBite platform and answers any question about its features.
 
 ## Files involved
 

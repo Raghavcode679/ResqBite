@@ -107,7 +107,7 @@ export const TaxCertificateModal: React.FC<TaxCertificateModalProps> = ({
             </div>
 
             <div className="text-right">
-              <span className="text-slate-400 block font-sans">OmniResQ Foundation & Trust</span>
+              <span className="text-slate-400 block font-sans">ResqBite Foundation & Trust</span>
               <span>Autonomous Registry</span>
             </div>
           </div>

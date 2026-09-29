@@ -134,7 +134,7 @@ export const AIAssistantWidget: React.FC<AIAssistantWidgetProps> = ({
 
   const greeting: ChatMessage = {
     role: 'assistant',
-    content: `Hi! 👋 I'm Omni Assist — your guide to OmniResQ. Ask me anything about how the platform works: posting surplus, claiming deliveries, quality checks, impact reports, or what any tab does. You're currently viewing the **${
+    content: `Hi! 👋 I'm ResQ Assist — your guide to ResqBite. Ask me anything about how the platform works: posting surplus, claiming deliveries, quality checks, impact reports, or what any tab does. You're currently viewing the **${
       TAB_LABELS[activeTab] || activeTab
     }** tab.`,
   };
@@ -183,7 +183,7 @@ export const AIAssistantWidget: React.FC<AIAssistantWidgetProps> = ({
               </div>
               <div>
                 <div className="text-sm font-bold text-white leading-tight">
-                  Omni Assist
+                  ResQ Assist
                 </div>
                 <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>

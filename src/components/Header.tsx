@@ -98,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onOpenAbout}
                 className="p-2 text-emerald-300 hover:text-white rounded-lg bg-slate-900 border border-emerald-800/60"
-                title="About OmniResQ"
+                title="About ResqBite"
               >
                 <Info className="w-4 h-4" />
               </button>
@@ -204,7 +204,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onOpenAbout}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 border border-emerald-800/60 text-emerald-300 hover:text-white hover:bg-emerald-900/40 transition-colors"
-                title="What is OmniResQ? Features, usage guide & tech stack"
+                title="What is ResqBite? Features, usage guide & tech stack"
               >
                 <Info className="w-4 h-4" />
                 <span className="text-xs font-semibold">About</span>

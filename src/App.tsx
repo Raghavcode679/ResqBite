@@ -721,7 +721,7 @@ export default function App() {
       <footer className="bg-slate-950 border-t border-slate-900 py-6 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-400">OmniResQ</span>
+            <span className="font-semibold text-slate-400">ResqBite</span>
             <span>·</span>
             <span>Every Meal Rescued, Everywhere — National Food Surplus Reduction & Redistribution Network</span>
           </div>

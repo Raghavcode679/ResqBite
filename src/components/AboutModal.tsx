@@ -113,7 +113,7 @@ const FEATURES: {
   },
   {
     icon: <BotMessageSquare className="w-4 h-4" />,
-    name: 'Omni Assist (AI Chat)',
+    name: 'ResQ Assist (AI Chat)',
     tagline: 'Floating AI guide on every page — answers any question about the platform in seconds. Runs on Groq (primary) with Gemini fallback.',
     how: 'Click the green bubble at the bottom-right and ask anything — "how do I donate?", "what does this tab do?". Context-aware of your current tab/role/city.',
     accent: 'text-emerald-400',
@@ -171,7 +171,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ open, onClose }) => {
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">About OmniResQ</h2>
+              <h2 className="text-base font-bold text-white">About ResqBite</h2>
               <p className="text-[11px] text-slate-400">
                 AI-powered food surplus reduction & redistribution network for India
               </p>
@@ -241,7 +241,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ open, onClose }) => {
                   <span className="text-sm font-bold text-white">The Rescue Workflow</span>
                 </div>
                 <p className="text-[11.5px] text-slate-400">
-                  OmniResQ connects four roles — <strong className="text-slate-200">Donor Kitchen</strong> (hotels, IT-park
+                  ResqBite connects four roles — <strong className="text-slate-200">Donor Kitchen</strong> (hotels, IT-park
                   cafeterias, cloud kitchens), <strong className="text-slate-200">Volunteer Driver</strong>,{' '}
                   <strong className="text-slate-200">Food Bank NGO</strong> and{' '}
                   <strong className="text-slate-200">Logistics Admin</strong>. Switch roles from the top-right. Here is
@@ -264,7 +264,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ open, onClose }) => {
               <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 flex items-start gap-2.5">
                 <HelpCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-[11.5px] text-slate-400">
-                  <strong className="text-slate-200">First time here?</strong> Click the green AI bubble at the bottom-right of any page — Omni Assist can walk you through every tab live.
+                  <strong className="text-slate-200">First time here?</strong> Click the green AI bubble at the bottom-right of any page — ResQ Assist can walk you through every tab live.
                 </p>
               </div>
             </div>
